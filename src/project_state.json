@@ -1,0 +1,181 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Build DOC C, a modern React web application for doctor recruitment and emergency connectivity with Doctor, Hospital Admin, and System Administrator roles, including dashboards, search/filters, notifications, analytics, and hospital subscription/payments.",
+  "architectural_notes": [
+    "Frontend framework: React (preferred) with clean component structure, reusable UI components, and module-based routing for Doctor/Hospital/Admin.",
+    "UI/UX: Medical professional theme (blue/white), clean minimal design, smooth animations, fully responsive for mobile and desktop.",
+    "Use dummy/sample data to demonstrate dashboards, charts, notifications, and payment/subscription flows."
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Medical cross + pulse line logo on blue/white background (doc-c-logo.dim_512x512.png)\n- Clean medical abstract hero banner with blue/white palette and subtle grid pattern (doc-c-hero.dim_1600x600.png)\n- Minimal heart-with-stethoscope icon in blue/white for specialization animation accent (doc-c-heart-icon.dim_256x256.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-the-doc-c-application-shell-with-responsive-layout-global-navigation-and-routing-for-doctor-hospital-admin-and-system-administrator-modules-including-registration-login-dashboards-analytics-and-subscription-payment-pages",
+      "title": "Create the DOC C application shell with responsive layout, global navigation, and routing for Doctor, Hospital Admin, and System Administrator modules (including registration, login, dashboards, analytics, and subscription/payment pages).",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-consistent-medical-professional-ui-theme-blue-white-with-clean-minimal-styling-modern-cards-dashboards-and-smooth-animations-across-key-interactions-toggles-notifications-modals-success-states",
+      "title": "Implement a consistent medical professional UI theme (blue + white) with clean minimal styling, modern cards/dashboards, and smooth animations across key interactions (toggles, notifications, modals, success states).",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-doctor-registration-page-ui-with-fields-name-email-phone-number-otp-verification-flow-password-creation-specialization-dropdown-with-heart-icon-animation-experience-years-location-and-profile-photo-upload-client-side-preview",
+      "title": "Build the Doctor Registration page UI with fields: name, email, phone number, OTP verification flow, password creation, specialization dropdown with heart icon animation, experience (years), location, and profile photo upload (client-side preview).",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-doctor-login-page-ui-and-connect-it-to-a-dummy-authentication-session-no-external-auth-provider-enabling-access-to-the-doctor-dashboard-after-login",
+      "title": "Build the Doctor Login page UI and connect it to a dummy authentication session (no external auth provider), enabling access to the Doctor Dashboard after login.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-doctor-dashboard-ui-featuring-profile-card-with-photo-specialization-displayed-inside-an-animated-heart-symbol-experience-location-availability-toggle-available-not-available-edit-profile-action-notification-panel-for-job-alerts-and-applied-jobs-section",
+      "title": "Implement the Doctor Dashboard UI featuring: profile card with photo, specialization displayed inside an animated heart symbol, experience, location, availability toggle (Available/Not Available), edit profile action, notification panel for job alerts, and applied jobs section.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-hospital-to-doctor-matching-notification-experience-when-a-hospital-requirement-matches-a-doctor-s-specialization-show-a-notification-alert-and-an-animated-popup-in-the-doctor-ui",
+      "title": "Implement the hospital-to-doctor matching notification experience: when a hospital requirement matches a doctor’s specialization, show a notification alert and an animated popup in the Doctor UI.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-hospital-registration-page-ui-with-fields-hospital-name-departments-location-accreditation-and-contact-details-store-submitted-hospital-profile-in-dummy-app-state",
+      "title": "Build the Hospital Registration page UI with fields: hospital name, departments, location, accreditation, and contact details; store submitted hospital profile in dummy app state.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-hospital-dashboard-ui-with-overview-cards-total-doctors-available-emergency-cases-active-hires-doctor-search-and-filters-specialization-experience-location-availability-emergency-mode-toggle-red-highlight-mode-and-a-doctor-list-with-profile-info-and-a-hire-action",
+      "title": "Build the Hospital Dashboard UI with overview cards (Total Doctors Available, Emergency Cases, Active Hires), doctor search and filters (specialization, experience, location, availability), emergency mode toggle (red highlight mode), and a doctor list with profile info and a Hire action.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-the-hospital-analytics-section-ui-with-charts-for-emergency-trends-and-doctor-availability-statistics-plus-performance-insight-cards-all-populated-from-dummy-sample-data",
+      "title": "Create the Hospital Analytics section UI with charts for emergency trends and doctor availability statistics, plus performance insight cards, all populated from dummy sample data.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-system-administrator-module-ui-to-view-all-registered-doctors-and-hospitals-approve-reject-profiles-manage-subscription-plans-and-monitor-payments-ui-driven-with-dummy-data",
+      "title": "Build the System Administrator module UI to view all registered doctors and hospitals, approve/reject profiles, manage subscription plans, and monitor payments (UI-driven with dummy data).",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-hospital-subscription-payments-ui-plan-selection-monthly-yearly-upi-payment-option-card-payment-option-auto-renew-toggle-invoice-download-action-payment-history-table-and-a-payment-success-animation",
+      "title": "Implement the Hospital Subscription & Payments UI: plan selection (monthly/yearly), UPI payment option, card payment option, auto-renew toggle, invoice download action, payment history table, and a payment success animation.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-end-to-end-workflow-logic-using-dummy-sample-data-and-simulated-real-time-updates-doctors-register-and-create-profiles-hospitals-subscribe-and-search-hospitals-send-hire-requests-doctors-receive-notifications-doctors-accept-reject-hospital-and-doctor-dashboards-update-via-polling-interval-based-refresh-in-the-ui",
+      "title": "Implement end-to-end workflow logic using dummy sample data and simulated real-time updates: doctors register and create profiles; hospitals subscribe and search; hospitals send hire requests; doctors receive notifications; doctors accept/reject; hospital and doctor dashboards update via polling/interval-based refresh in the UI.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-motoko-backend-actor-that-exposes-crud-style-endpoints-for-doctors-hospitals-hire-requests-notifications-subscriptions-and-payments-using-stable-storage-integrate-the-frontend-to-fetch-mutate-via-react-query",
+      "title": "Add a Motoko backend actor that exposes CRUD-style endpoints for doctors, hospitals, hire requests, notifications, subscriptions, and payments using stable storage; integrate the frontend to fetch/mutate via React Query.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-generated-static-brand-assets-and-wire-them-into-the-ui-app-header-login-screens-as-files-under-frontend-public-assets-generated-do-not-serve-images-from-the-backend",
+      "title": "Add generated static brand assets and wire them into the UI (app header/login screens) as files under frontend/public/assets/generated (do not serve images from the backend).",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Set up React frontend app structure with routing between Doctor, Hospital, and System Admin modules; responsive medical (blue/white) UI with reusable components and smooth animations.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Doctor module: registration (fields incl. OTP verification, specialization dropdown with heart animation, profile photo upload), login, and doctor dashboard (profile card, availability toggle, edit profile, notifications, applied jobs).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Hospital module: hospital registration and hospital dashboard with overview cards, doctor search + filters (specialization/experience/location/availability), emergency mode toggle (red highlight), doctor list with hire action.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Hospital analytics UI: graphs for emergency trends, doctor availability stats, and performance insight cards.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "System admin module UI: view all doctors/hospitals, approve/reject profiles, manage subscription plans, and monitor payments.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Payment & subscription UI for hospitals: monthly/yearly plans, UPI + card payments, auto-renew toggle, invoice download, payment history table, and payment success animation.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Workflow/interaction logic in UI with dummy data: hospital hire requests to doctors, doctor accept/reject, job alert notifications with animated popup, and real-time dashboard updates (simulated).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Include dummy sample data for doctors, hospitals, subscriptions, payments, and analytics to populate dashboards and charts.",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "DOC C",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

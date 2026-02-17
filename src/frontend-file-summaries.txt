@@ -1,0 +1,6 @@
+{
+  "frontend/src/components/doctor/DoctorProfileCard.tsx": "Doctor profile card component displaying profile information with animated heart specialty indicator, availability toggle, and edit profile functionality. Fixed Tailwind CSS v3 class name from flex-shrink-0 to shrink-0.",
+  "frontend/src/state/analyticsSampleData.ts": "Zustand store providing dummy analytics data for emergency trends, doctor availability charts, and performance insights. Fixed empty interface TypeScript error by removing the redundant interface extension.",
+  "frontend/src/hooks/useSimulatedPolling.ts": "Custom React hook that simulates real-time data polling using setInterval for dashboard updates without WebSocket infrastructure.",
+  "frontend/src/index.css": "Global CSS file with Tailwind directives and custom CSS variables defining a medical-themed blue/white color palette for both light and dark modes using OKLCH color space."
+}

@@ -1,2 +1,3 @@
-# doc-c
-Exported from Caffeine project: DOC C
+## DOC C
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`
