@@ -1,38 +1,58 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from '@tanstack/react-router';
-import { useSession } from '@/state/session';
-import DoctorProfileCard from '@/components/doctor/DoctorProfileCard';
-import NotificationsPanel from '@/components/doctor/NotificationsPanel';
-import AppliedJobsList from '@/components/doctor/AppliedJobsList';
-import { useSimulatedPolling } from '@/hooks/useSimulatedPolling';
+import { useInternetIdentity } from '@/hooks/useInternetIdentity';
+import { useGetCallerUserProfile } from '@/hooks/useCurrentUserProfile';
+import PremiumDoctorProfileDashboard from '@/components/doctor/PremiumDoctorProfileDashboard';
+import ProfileSetupDialog from '@/components/auth/ProfileSetupDialog';
 
 export default function DoctorDashboardPage() {
   const navigate = useNavigate();
-  const { session } = useSession();
-  useSimulatedPolling(5000);
+  const { identity, isInitializing } = useInternetIdentity();
+  const { data: userProfile, isLoading: profileLoading, isFetched } = useGetCallerUserProfile();
+  const [showProfileSetup, setShowProfileSetup] = useState(false);
+
+  const isAuthenticated = !!identity;
 
   useEffect(() => {
-    if (!session || session.role !== 'doctor') {
+    if (!isInitializing && !isAuthenticated) {
       navigate({ to: '/doctor/login' });
     }
-  }, [session, navigate]);
+  }, [isAuthenticated, isInitializing, navigate]);
 
-  if (!session || session.role !== 'doctor') {
+  useEffect(() => {
+    if (isAuthenticated && isFetched && !profileLoading) {
+      if (userProfile === null) {
+        setShowProfileSetup(true);
+      } else if (userProfile && userProfile.profileType !== 'doctor') {
+        navigate({ to: '/doctor/login' });
+      }
+    }
+  }, [isAuthenticated, userProfile, profileLoading, isFetched, navigate]);
+
+  const handleProfileComplete = () => {
+    setShowProfileSetup(false);
+  };
+
+  if (isInitializing || !isAuthenticated) {
+    return null;
+  }
+
+  if (profileLoading || !isFetched) {
+    return (
+      <div className="container py-8">
+        <p className="text-muted-foreground">Loading profile...</p>
+      </div>
+    );
+  }
+
+  if (!userProfile || userProfile.profileType !== 'doctor') {
     return null;
   }
 
   return (
-    <div className="container py-8">
-      <h1 className="text-3xl font-bold mb-8">Doctor Dashboard</h1>
-      <div className="grid lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2 space-y-6">
-          <DoctorProfileCard />
-          <AppliedJobsList />
-        </div>
-        <div>
-          <NotificationsPanel />
-        </div>
-      </div>
-    </div>
+    <>
+      <PremiumDoctorProfileDashboard />
+      <ProfileSetupDialog open={showProfileSetup} onComplete={handleProfileComplete} />
+    </>
   );
 }

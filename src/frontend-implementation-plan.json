@@ -1,547 +1,170 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "DOC C frontend modules, dashboards, workflows, and subscription UI",
+  "title": "Premium Glassmorphism Doctor Profile Dashboard (3-column hero + animations)",
   "requirements": [
     {
-      "id": "REQ-1",
-      "summary": "Create responsive app shell with global navigation and routed modules for Doctor, Hospital Admin, and System Admin.",
+      "id": "REQ-18",
+      "summary": "Build the premium glassmorphism Doctor Profile Dashboard layout with a full-width soft-blue hero background and a centered 3-column responsive profile card.",
       "acceptanceCriteria": [
-        "App loads with a coherent responsive layout on mobile and desktop",
-        "Routes exist for Doctor: Register, Login, Dashboard; Hospital: Register, Dashboard, Analytics, Subscription/Payments; Admin: Dashboard/Management pages",
-        "Navigation allows moving between modules without page reloads"
+        "Dashboard page shows a full-width hero background in a soft blue medical theme behind the main content.",
+        "A centered profile card uses glassmorphism (semi-transparent surface + backdrop blur) with rounded corners and soft shadow.",
+        "On desktop, the card renders as a clear 3-column layout (left/center/right).",
+        "On mobile, the layout stacks cleanly (sections readable, actions accessible, no overflow)."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/App.tsx",
+          "path": "frontend/src/components/doctor/PremiumDoctorProfileDashboard.tsx",
           "operation": "create",
-          "description": "Create the application shell with react-router routing, shared layout, and route registration for Doctor/Hospital/Admin sections; ensure navigation is SPA-based (no full reload)."
-        },
-        {
-          "path": "frontend/src/router/routes.tsx",
-          "operation": "create",
-          "description": "Define route map for Doctor (register/login/dashboard), Hospital (register/dashboard/analytics/subscription-payments), and Admin (dashboard + management subpages) and export for App shell wiring."
-        },
-        {
-          "path": "frontend/src/components/layout/AppLayout.tsx",
-          "operation": "create",
-          "description": "Create responsive layout wrapper (header + sidebar/topnav + content) used by all routed pages; use shadcn-ui building blocks (e.g., navigation menu, sheet/drawer) for responsive navigation. Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/components/layout/GlobalNav.tsx",
-          "operation": "create",
-          "description": "Implement global navigation UI to switch between Doctor/Hospital/Admin modules, reflecting current route and role/session state; use shadcn-ui navigation primitives. Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/pages/doctor/DoctorRegisterPage.tsx",
-          "operation": "create",
-          "description": "Create routed Doctor Registration page container and connect it to shared layout and app state."
-        },
-        {
-          "path": "frontend/src/pages/doctor/DoctorLoginPage.tsx",
-          "operation": "create",
-          "description": "Create routed Doctor Login page container and connect it to shared layout."
+          "description": "Create the premium dashboard UI shell (hero background + centered glassmorphism card) and implement the responsive 3-column layout (left/center/right) with mobile stacking. Use composed shadcn-ui components (e.g., Card, Button, Badge-like styling) without modifying frontend/src/components/ui. Verify the component's usage instructions before implementing."
         },
         {
           "path": "frontend/src/pages/doctor/DoctorDashboardPage.tsx",
-          "operation": "create",
-          "description": "Create routed Doctor Dashboard page container and connect it to shared layout."
-        },
-        {
-          "path": "frontend/src/pages/hospital/HospitalRegisterPage.tsx",
-          "operation": "create",
-          "description": "Create routed Hospital Registration page container and connect it to shared layout and app state."
-        },
-        {
-          "path": "frontend/src/pages/hospital/HospitalDashboardPage.tsx",
-          "operation": "create",
-          "description": "Create routed Hospital Dashboard page container and connect it to shared layout."
-        },
-        {
-          "path": "frontend/src/pages/hospital/HospitalAnalyticsPage.tsx",
-          "operation": "create",
-          "description": "Create routed Hospital Analytics page container and connect it to shared layout."
-        },
-        {
-          "path": "frontend/src/pages/hospital/HospitalSubscriptionPaymentsPage.tsx",
-          "operation": "create",
-          "description": "Create routed Hospital Subscription & Payments page container and connect it to shared layout."
-        },
-        {
-          "path": "frontend/src/pages/admin/AdminDashboardPage.tsx",
-          "operation": "create",
-          "description": "Create routed System Admin dashboard container and connect it to shared layout; add placeholder sections for management pages."
-        },
-        {
-          "path": "frontend/src/pages/admin/AdminDoctorsPage.tsx",
-          "operation": "create",
-          "description": "Create routed Admin Doctors management page container."
-        },
-        {
-          "path": "frontend/src/pages/admin/AdminHospitalsPage.tsx",
-          "operation": "create",
-          "description": "Create routed Admin Hospitals management page container."
-        },
-        {
-          "path": "frontend/src/pages/admin/AdminSubscriptionsPage.tsx",
-          "operation": "create",
-          "description": "Create routed Admin subscription plan management page container."
-        },
-        {
-          "path": "frontend/src/pages/admin/AdminPaymentsPage.tsx",
-          "operation": "create",
-          "description": "Create routed Admin payments monitoring page container."
+          "operation": "modify",
+          "description": "Swap the existing dashboard body content to render the new PremiumDoctorProfileDashboard within the existing authenticated doctor dashboard route, keeping the overall page structure responsive. Verify the component's usage instructions before implementing."
         }
       ]
     },
     {
-      "id": "REQ-2",
-      "summary": "Apply a consistent blue/white medical theme with modern cards/dashboards and subtle animations across interactions.",
+      "id": "REQ-19",
+      "summary": "Implement the left column content: avatar, hospital/contact info, 5-star rating, and the two CTAs with correct primary/destructive styling.",
       "acceptanceCriteria": [
-        "UI uses a consistent blue/white palette, clean typography, and spacing across all pages",
-        "Animations are present but subtle (e.g., modal/popup transitions, toggle transitions, success animation after payment)",
-        "All main screens are usable on mobile and desktop breakpoints"
+        "Left section includes all requested fields and both CTAs with correct button color intent (primary blue, destructive red).",
+        "Doctor photo is circular and maintains aspect ratio (no stretching).",
+        "Rating is rendered as a 5-star system (filled vs unfilled stars)."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/index.css",
-          "operation": "create",
-          "description": "Add global theme tokens and base styles for a blue/white medical look (typography, spacing, card surfaces) using Tailwind conventions and CSS variables aligned with the existing Tailwind theme."
+          "path": "frontend/src/components/doctor/PremiumDoctorProfileDashboard.tsx",
+          "operation": "modify",
+          "description": "Implement the left column exactly: circular avatar image, hospital name, phone, email, location, 5-star rating display, primary blue \"Contact Now\" button, and destructive red \"Hire Doctor\" button (presentational only). Use shadcn-ui Button for consistent primary/destructive styling without editing frontend/src/components/ui. Verify the component's usage instructions before implementing."
         },
+        {
+          "path": "frontend/public/assets/generated/doctor-anil-kapoor-avatar.dim_512x512.png",
+          "operation": "create",
+          "description": "Add the generated professional doctor avatar image as a static asset for the circular profile photo, referenced by the premium dashboard UI (no backend image serving)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-20",
+      "summary": "Implement the center column content: name, specialization, experience, skills, availability badge, and working hours.",
+      "acceptanceCriteria": [
+        "Doctor name is visually dominant (large font) and specialization is immediately below it.",
+        "Experience is shown as years of experience.",
+        "Skills are displayed as a clear list (e.g., chips or bullet list).",
+        "Availability shows a green badge with the exact text \"Available Now\".",
+        "Working hours are displayed in the center section."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/doctor/PremiumDoctorProfileDashboard.tsx",
+          "operation": "modify",
+          "description": "Implement the center column exactly: large doctor name, specialization directly beneath, years of experience, skills list (chips or bullets), a green availability badge with exact text \"Available Now\", and working hours. Use composed shadcn-ui primitives where helpful (e.g., Card typography, Button not required here) without modifying frontend/src/components/ui. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-21",
+      "summary": "Implement the right column content: About section and a compact map preview with a location pin indicator (no external map APIs).",
+      "acceptanceCriteria": [
+        "Right section contains an About heading/label and a short descriptive paragraph.",
+        "A compact map preview UI is displayed with a visible location pin marker."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/doctor/PremiumDoctorProfileDashboard.tsx",
+          "operation": "modify",
+          "description": "Implement the right column exactly: an About heading/label with short paragraph and a small static map preview tile image with a visible location pin indicator (UI-only; no external map APIs). Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/public/assets/generated/map-preview-tile.dim_640x360.png",
+          "operation": "create",
+          "description": "Add the generated minimal map preview tile image as a static asset to be displayed in the right column (no backend image serving, no external map APIs)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-22",
+      "summary": "Add smooth UI animations: card fade-in on load, CTA hover scale, star rating animation, and pulsing availability badge.",
+      "acceptanceCriteria": [
+        "On first render, the main profile card visibly fades in (not instant).",
+        "Both CTA buttons have a hover interaction that scales slightly and returns smoothly.",
+        "The star rating has an obvious animation (e.g., staggered reveal or subtle pop) when displayed.",
+        "The availability badge visibly pulses while in the \"Available Now\" state."
+      ],
+      "file_operations": [
         {
           "path": "frontend/tailwind.config.js",
           "operation": "modify",
-          "description": "Extend theme tokens (primary blues, accent reds for emergency mode, chart palette variables) and ensure animations utilities cover key interactions (modals/toggles/success states)."
+          "description": "Extend Tailwind animations to support the required dashboard interactions (e.g., a dedicated fade-in for the profile card and a star pop/stagger animation) while keeping existing configuration intact."
         },
         {
-          "path": "frontend/src/components/ui/animations.tsx",
-          "operation": "create",
-          "description": "Create small reusable animation helpers/wrappers (e.g., fade/slide/scale transitions) composed around existing shadcn-ui components (do not modify the underlying frontend/src/components/ui library). Verify the component's usage instructions before implementing."
+          "path": "frontend/src/components/doctor/PremiumDoctorProfileDashboard.tsx",
+          "operation": "modify",
+          "description": "Apply animation classes: profile card fade-in on initial mount, CTA buttons hover scale with smooth transitions, star rating animation (e.g., staggered pop), and availability badge pulse while \"Available Now\". Verify the component's usage instructions before implementing."
         }
       ]
     },
     {
-      "id": "REQ-3",
-      "summary": "Build Doctor Registration UI with OTP simulation, specialization dropdown with animated heart, and profile photo preview upload.",
+      "id": "REQ-23",
+      "summary": "Populate the dashboard with the specified English dummy data for Dr. Anil Kapoor and reasonable placeholder values for all other fields.",
       "acceptanceCriteria": [
-        "All specified fields are present with validation and clear error messages in English",
-        "OTP verification is represented as a UI flow (request OTP, enter OTP, verify) using dummy logic",
-        "Specialization dropdown includes an animated heart indicator when selecting/confirming specialization",
-        "Profile photo upload supports selecting an image and showing a preview"
+        "The page renders the name \"Dr. Anil Kapoor\", specialization \"Neurosurgeon\", and \"12\" years experience.",
+        "Other required fields (hospital name, phone, email, location, rating, skills, working hours, about) are present using dummy values.",
+        "No non-English strings are introduced in the new dashboard UI."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/pages/doctor/DoctorRegisterPage.tsx",
+          "path": "frontend/src/components/doctor/PremiumDoctorProfileDashboard.tsx",
           "operation": "modify",
-          "description": "Implement registration form fields (name/email/phone/otp/password/specialization/experience/location/photo upload preview) with client-side validation and a simulated OTP request/verify stepper; use shadcn-ui form inputs/select/dialog components as needed. Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/components/doctor/SpecializationSelectWithHeart.tsx",
-          "operation": "create",
-          "description": "Create specialization dropdown UI that shows an animated heart indicator upon selection/confirmation; use shadcn-ui Select and animation utilities. Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/components/shared/ImageUploadPreview.tsx",
-          "operation": "create",
-          "description": "Create a reusable image picker with client-side preview and basic validation (file type/size) for profile photo upload; keep data client-side only."
-        },
-        {
-          "path": "frontend/src/state/doctorProfile.ts",
-          "operation": "create",
-          "description": "Add frontend-only doctor profile draft/state helpers to store registration inputs (including photo preview metadata) and expose update/reset actions."
+          "description": "Add an internal dummy data object (English-only) and bind it to all UI fields, including: Dr. Anil Kapoor, Neurosurgeon, 12 years experience, hospital name, phone, email, location, rating value for 5-star display, skills list, working hours, and About text. Verify the component's usage instructions before implementing."
         }
       ]
     },
     {
-      "id": "REQ-4",
-      "summary": "Build Doctor Login UI with a dummy session that routes to Doctor Dashboard and reflects logged-in state in navigation.",
+      "id": "REQ-24",
+      "summary": "Integrate the new dashboard UI into the existing doctor route while preserving Internet Identity authentication gating and profile setup dialog behavior.",
       "acceptanceCriteria": [
-        "Login form is present and validates required inputs",
-        "Upon successful dummy login, user is routed to the Doctor Dashboard",
-        "Logged-in state is reflected in the UI (e.g., nav shows role/session status)"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/state/session.ts",
-          "operation": "create",
-          "description": "Implement a lightweight dummy session store (role + basic identity info) persisted in localStorage/sessionStorage and accessible across pages."
-        },
-        {
-          "path": "frontend/src/pages/doctor/DoctorLoginPage.tsx",
-          "operation": "modify",
-          "description": "Implement login form with required validation and dummy credential handling that sets session role to Doctor and navigates to the Doctor Dashboard."
-        },
-        {
-          "path": "frontend/src/components/layout/GlobalNav.tsx",
-          "operation": "modify",
-          "description": "Display current session role/status and provide logout action that clears dummy session and returns user to a suitable login route."
-        },
-        {
-          "path": "frontend/src/components/auth/RouteGuards.tsx",
-          "operation": "create",
-          "description": "Create simple frontend-only route guards for Doctor/Hospital/Admin sections based on dummy session role; wire guards into route definitions."
-        },
-        {
-          "path": "frontend/src/router/routes.tsx",
-          "operation": "modify",
-          "description": "Wrap Doctor dashboard route with a Doctor-only guard and configure post-login redirects."
-        }
-      ]
-    },
-    {
-      "id": "REQ-5",
-      "summary": "Implement Doctor Dashboard UI with profile card, animated heart specialty display, availability toggle, edit profile, notifications, and applied jobs.",
-      "acceptanceCriteria": [
-        "Doctor dashboard displays all required elements with realistic dummy data",
-        "Availability toggle updates the displayed availability state and is persisted in app state",
-        "Edit profile opens an editable UI (modal or page) and updates the displayed profile state",
-        "Notifications panel and applied jobs list render and update based on dummy workflow events"
+        "Unauthenticated users attempting to access the doctor dashboard experience are redirected to the doctor login page as before.",
+        "Authenticated users with a doctor profile can access the new premium dashboard UI.",
+        "The existing profile setup dialog behavior is preserved (shown when no caller profile exists)."
       ],
       "file_operations": [
         {
           "path": "frontend/src/pages/doctor/DoctorDashboardPage.tsx",
           "operation": "modify",
-          "description": "Build dashboard layout with profile card (photo, experience, location), animated heart specialty, availability switch, edit profile action, notifications panel, and applied jobs section; use shadcn-ui cards/switch/dialog/table components. Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/components/doctor/DoctorProfileCard.tsx",
-          "operation": "create",
-          "description": "Create profile card component with animated specialty-in-heart display and availability toggle wiring to app state; use shadcn-ui Card/Switch. Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/components/doctor/EditDoctorProfileDialog.tsx",
-          "operation": "create",
-          "description": "Implement edit profile modal/dialog (or inline panel) that updates the displayed doctor profile in frontend state; use shadcn-ui Dialog + Form controls. Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/components/doctor/NotificationsPanel.tsx",
-          "operation": "create",
-          "description": "Render notification list for job alerts with read/dismiss handling; keep items stored in UI state even after dismissing popups."
-        },
-        {
-          "path": "frontend/src/components/doctor/AppliedJobsList.tsx",
-          "operation": "create",
-          "description": "Render applied jobs / hire requests for the current doctor with accept/reject actions that update dummy workflow state."
+          "description": "Preserve existing Internet Identity gating and profile setup logic (redirect unauthenticated to /doctor/login; show ProfileSetupDialog when caller profile is missing; block non-doctor profileType) while rendering the new PremiumDoctorProfileDashboard for authenticated doctor users. Verify the component's usage instructions before implementing."
         }
       ]
     },
     {
-      "id": "REQ-6",
-      "summary": "Show matching notifications and an animated popup when hospital requirements match doctor specialization.",
+      "id": "REQ-25",
+      "summary": "Add and reference required generated static images from frontend/public/assets/generated for the hero background, avatar, and map preview (no backend image serving).",
       "acceptanceCriteria": [
-        "Triggering a matching requirement produces an in-app notification item",
-        "An animated popup/modal appears showing the alert details and can be dismissed",
-        "Notifications are readable and stored in UI state so they remain visible after dismissal in the panel"
+        "Any newly generated images are stored under frontend/public/assets/generated and loaded via /assets/generated/... URLs.",
+        "No backend endpoints are introduced for serving images."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/doctor/MatchAlertPopup.tsx",
+          "path": "frontend/public/assets/generated/doctor-hero-bg.dim_1920x600.png",
           "operation": "create",
-          "description": "Create an animated popup/modal for match alerts (dismissible) and integrate with doctor notification state; compose with shadcn-ui Dialog and animation helpers. Verify the component's usage instructions before implementing."
+          "description": "Add the generated soft blue medical hero background image as a static asset to be used by the premium dashboard hero section (no backend image serving)."
         },
         {
-          "path": "frontend/src/state/notifications.ts",
-          "operation": "create",
-          "description": "Add notification store utilities to add/persist notifications and track dismissal state separately from list membership."
-        },
-        {
-          "path": "frontend/src/pages/doctor/DoctorDashboardPage.tsx",
+          "path": "frontend/public/assets/generated/doctor-anil-kapoor-avatar.dim_512x512.png",
           "operation": "modify",
-          "description": "Wire match alert popup display to workflow events and ensure generated notifications appear in the notifications panel after popup dismissal."
-        }
-      ]
-    },
-    {
-      "id": "REQ-7",
-      "summary": "Build Hospital Registration UI and store submitted profile in dummy app state with post-submit routing.",
-      "acceptanceCriteria": [
-        "All specified fields are present and validated",
-        "Submitting creates/updates the hospital profile in app state and routes to Hospital Dashboard"
-      ],
-      "file_operations": [
+          "description": "Ensure the generated avatar asset exists at this exact path and is the one referenced by the premium dashboard for the circular doctor photo (no backend image serving)."
+        },
         {
-          "path": "frontend/src/pages/hospital/HospitalRegisterPage.tsx",
+          "path": "frontend/public/assets/generated/map-preview-tile.dim_640x360.png",
           "operation": "modify",
-          "description": "Implement hospital registration form (name, departments, location, accreditation, contact details) with validation; on submit, save to dummy app state and route to Hospital Dashboard; use shadcn-ui inputs/selects. Verify the component's usage instructions before implementing."
+          "description": "Ensure the generated map preview tile asset exists at this exact path and is the one referenced by the premium dashboard map preview (no external map APIs; no backend image serving)."
         },
         {
-          "path": "frontend/src/state/hospitalProfile.ts",
-          "operation": "create",
-          "description": "Add frontend-only hospital profile state to store submitted hospital registration details and expose update/reset actions."
-        },
-        {
-          "path": "frontend/src/router/routes.tsx",
+          "path": "frontend/src/components/doctor/PremiumDoctorProfileDashboard.tsx",
           "operation": "modify",
-          "description": "Ensure hospital registration route redirects to hospital dashboard on successful submit."
-        }
-      ]
-    },
-    {
-      "id": "REQ-8",
-      "summary": "Implement Hospital Dashboard with overview metrics, doctor search/filters, emergency mode, and hire action workflow event.",
-      "acceptanceCriteria": [
-        "Overview cards display populated dummy metrics",
-        "Search and filters narrow the doctor list based on dummy doctor data",
-        "Emergency Mode toggle visually switches the dashboard to a red-accent highlight state",
-        "Each doctor row/card shows profile, specialization, and experience, and the Hire action triggers a hire request workflow event"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/hospital/HospitalDashboardPage.tsx",
-          "operation": "modify",
-          "description": "Build hospital dashboard UI with overview cards, search and filter controls, emergency mode switch (red-accent styling), and doctor list with hire action; use shadcn-ui Card/Input/Select/Switch/Button components. Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/components/hospital/DoctorSearchFilters.tsx",
-          "operation": "create",
-          "description": "Create reusable search + filter UI (specialization/experience/location/availability) that filters a provided doctor dataset; use shadcn-ui inputs/selects. Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/components/hospital/DoctorList.tsx",
-          "operation": "create",
-          "description": "Render doctor cards/rows with profile info and Hire button; emit a hire-request creation action to workflow state."
-        },
-        {
-          "path": "frontend/src/state/emergencyMode.ts",
-          "operation": "create",
-          "description": "Add emergency mode UI state that toggles dashboard highlight styling and persists during navigation."
-        }
-      ]
-    },
-    {
-      "id": "REQ-9",
-      "summary": "Create Hospital Analytics UI with responsive charts and performance insight cards driven by dummy sample data.",
-      "acceptanceCriteria": [
-        "At least two charts are rendered (emergency trends and doctor availability) with labeled axes/legends where applicable",
-        "Performance insight cards render with meaningful dummy values and short explanatory labels",
-        "Charts render responsively without overflow on mobile"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/hospital/HospitalAnalyticsPage.tsx",
-          "operation": "modify",
-          "description": "Implement analytics layout with two charts (emergency trends, doctor availability) and insight cards from dummy sample data; ensure responsive rendering within mobile constraints; use shadcn-ui cards. Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/components/analytics/ResponsiveCharts.tsx",
-          "operation": "create",
-          "description": "Implement lightweight responsive chart components (e.g., SVG/Canvas-based) with labels/legends suitable for mobile and desktop without overflow."
-        },
-        {
-          "path": "frontend/src/state/analyticsSampleData.ts",
-          "operation": "create",
-          "description": "Provide dummy analytics datasets used by analytics charts and insight cards consistently across the UI."
-        }
-      ]
-    },
-    {
-      "id": "REQ-10",
-      "summary": "Implement System Admin UI for viewing doctors/hospitals, approving/rejecting, managing subscription plans, and monitoring payments using dummy state.",
-      "acceptanceCriteria": [
-        "Admin pages show separate views/tables for doctors and hospitals",
-        "Approve/Reject actions update the displayed status for profiles in app state",
-        "Subscription plan management UI supports creating/editing/removing monthly/yearly plan definitions in dummy state",
-        "Payments monitoring UI shows a payment list with statuses and basic filtering/sorting"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/admin/AdminAccessGate.tsx",
-          "operation": "create",
-          "description": "Add an admin-only access gate UI. Use the authorization component patterns to support role-based access control UX (e.g., deny screen) and optionally Internet Identity login if needed by backend-connected admin views. Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/pages/admin/AdminDoctorsPage.tsx",
-          "operation": "modify",
-          "description": "Implement admin doctors table/view with approve/reject actions that update dummy state; use shadcn-ui Table/Button/Badge components. Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/pages/admin/AdminHospitalsPage.tsx",
-          "operation": "modify",
-          "description": "Implement admin hospitals table/view with approve/reject actions that update dummy state; use shadcn-ui Table/Button/Badge components. Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/pages/admin/AdminSubscriptionsPage.tsx",
-          "operation": "modify",
-          "description": "Implement subscription plan management UI to create/edit/remove monthly/yearly plans in dummy state; use shadcn-ui Dialog/Form/Table components. Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/pages/admin/AdminPaymentsPage.tsx",
-          "operation": "modify",
-          "description": "Implement payments monitoring UI with list, statuses, and basic filtering/sorting (client-side) using dummy data; use shadcn-ui Table/Select/Input components. Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/state/adminData.ts",
-          "operation": "create",
-          "description": "Add dummy admin-managed datasets and actions for approvals, plan definitions, and payment records to support UI-driven management."
-        },
-        {
-          "path": "frontend/src/router/routes.tsx",
-          "operation": "modify",
-          "description": "Wire Admin routes behind the AdminAccessGate and ensure navigation to admin subpages is present from the global navigation."
-        }
-      ]
-    },
-    {
-      "id": "REQ-11",
-      "summary": "Implement Hospital Subscription & Payments UI with plan selection, UPI/card flows, auto-renew, invoice download, history table, and success animation.",
-      "acceptanceCriteria": [
-        "Hospital can select monthly or yearly plan and see price/summary details (dummy)",
-        "UI offers UPI and Card payment flows (dummy form/confirmation)",
-        "Auto-renew toggle persists to subscription state",
-        "Invoice download triggers a client-side download (dummy PDF/text) for a selected payment",
-        "Payment history table lists prior dummy payments and newly completed payments",
-        "A visible success animation plays on successful payment completion"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/hospital/HospitalSubscriptionPaymentsPage.tsx",
-          "operation": "modify",
-          "description": "Implement subscription plan selection (monthly/yearly) with summary, UPI/card dummy payment forms, auto-renew toggle, invoice download action, payment history table, and success animation; use shadcn-ui Tabs/Switch/Dialog/Table components. Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/components/payments/InvoiceDownload.ts",
-          "operation": "create",
-          "description": "Implement client-side invoice generation/download helper (dummy text/PDF-like blob) for a selected payment record without any backend image/file serving."
-        },
-        {
-          "path": "frontend/src/components/payments/PaymentSuccessAnimation.tsx",
-          "operation": "create",
-          "description": "Create a reusable success animation component used after a successful payment confirmation; leverage Tailwind animation utilities and shadcn-ui styling. Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/state/subscriptionPayments.ts",
-          "operation": "create",
-          "description": "Add dummy subscription state (selected plan, auto-renew) and payment history state with append/update actions to support UI flows."
-        }
-      ]
-    },
-    {
-      "id": "REQ-12",
-      "summary": "Implement end-to-end dummy workflow logic with simulated real-time updates via polling/interval refresh across Doctor and Hospital dashboards.",
-      "acceptanceCriteria": [
-        "A hire request created from the Hospital Dashboard appears in the Doctor notifications/applied section",
-        "Doctor accept/reject changes the hire request status and is reflected on both Doctor and Hospital dashboards",
-        "Simulated real-time updates occur without manual page refresh (e.g., via periodic polling)",
-        "Dummy datasets exist for doctors, hospitals, subscriptions, payments, and analytics and are used throughout the UI"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/state/workflows.ts",
-          "operation": "create",
-          "description": "Implement dummy workflow state for doctors/hospitals/hire requests/notifications with actions for send hire request, accept/reject, and derived views for doctor/hospital dashboards."
-        },
-        {
-          "path": "frontend/src/state/seedData.ts",
-          "operation": "create",
-          "description": "Provide consistent dummy seed datasets (doctors, hospitals, hire requests, notifications, subscriptions, payments, analytics) used across modules when backend data is absent."
-        },
-        {
-          "path": "frontend/src/hooks/useSimulatedPolling.ts",
-          "operation": "create",
-          "description": "Create a small polling/interval hook used to refresh or reconcile dummy workflow state without WebSockets; ensure it can be enabled/disabled per page."
-        },
-        {
-          "path": "frontend/src/pages/hospital/HospitalDashboardPage.tsx",
-          "operation": "modify",
-          "description": "Wire Hire action to create a hire request workflow event and trigger match notification logic for relevant doctors; enable periodic refresh to simulate real-time updates."
-        },
-        {
-          "path": "frontend/src/pages/doctor/DoctorDashboardPage.tsx",
-          "operation": "modify",
-          "description": "Wire accept/reject actions to update hire request statuses and reflect changes in applied jobs and notifications; enable periodic refresh to simulate real-time updates."
-        }
-      ]
-    },
-    {
-      "id": "REQ-13",
-      "summary": "Integrate frontend data loading/mutations with the existing backend interface via React Query while remaining functional with dummy seed data.",
-      "acceptanceCriteria": [
-        "Backend provides query/update methods to list and mutate doctors, hospitals, and hire requests, plus subscription/payment records",
-        "Data persists across canister upgrades using stable structures (no external database)",
-        "Frontend uses React Query to load lists and perform mutations and reflects loading/error states",
-        "App remains functional with dummy seed data if backend is empty (e.g., seed on first run or via a dedicated init action)"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/api/queryClient.ts",
-          "operation": "create",
-          "description": "Add shared React Query utilities (keys, helpers, optimistic update patterns) to standardize loading/error/empty-state handling across modules."
-        },
-        {
-          "path": "frontend/src/api/backendHooks.ts",
-          "operation": "create",
-          "description": "Create React Query hooks that call the backend actor via the existing useActor hook (immutable) for listing/registering doctors/hospitals, hire requests, notifications, and admin approval-related reads/writes; include graceful error handling for authorization traps. Use the authorization and user-approval components' frontend patterns for role/approval checks. Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/hooks/useHybridData.ts",
-          "operation": "create",
-          "description": "Implement a data strategy that prefers backend-loaded data when available and falls back to local dummy seed data when backend returns empty/unavailable; ensure consistent types across UI."
-        },
-        {
-          "path": "frontend/src/pages/hospital/HospitalDashboardPage.tsx",
-          "operation": "modify",
-          "description": "Switch doctor lists and hire-request actions to use React Query hooks where applicable, showing loading/error states and falling back to dummy seed data when needed."
-        },
-        {
-          "path": "frontend/src/pages/doctor/DoctorDashboardPage.tsx",
-          "operation": "modify",
-          "description": "Load notifications and hire requests using React Query with refetch intervals (polling) and fall back to dummy state when backend data is empty/unavailable."
-        },
-        {
-          "path": "frontend/src/pages/admin/AdminDoctorsPage.tsx",
-          "operation": "modify",
-          "description": "Use React Query to load registered doctors/approvals when authenticated/authorized; continue to support dummy admin state when backend is unavailable/empty."
-        },
-        {
-          "path": "frontend/src/pages/admin/AdminHospitalsPage.tsx",
-          "operation": "modify",
-          "description": "Use React Query to load registered hospitals/approvals when authenticated/authorized; continue to support dummy admin state when backend is unavailable/empty."
-        }
-      ]
-    },
-    {
-      "id": "REQ-14",
-      "summary": "Add generated static brand assets under frontend/public/assets/generated and wire them into header and an auth screen.",
-      "acceptanceCriteria": [
-        "Generated images exist in frontend/public/assets/generated with the specified filenames",
-        "App header and at least one auth screen visibly uses the logo/hero image from static assets",
-        "No backend endpoints are used to fetch these images"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/public/assets/generated/doc-c-logo.dim_512x512.png",
-          "operation": "create",
-          "description": "Add generated static asset: frontend/public/assets/generated/doc-c-logo.dim_512x512.png (Medical cross + pulse line logo on blue/white background)."
-        },
-        {
-          "path": "frontend/public/assets/generated/doc-c-hero.dim_1600x600.png",
-          "operation": "create",
-          "description": "Add generated static asset: frontend/public/assets/generated/doc-c-hero.dim_1600x600.png (Clean medical abstract hero banner with blue/white palette and subtle grid pattern)."
-        },
-        {
-          "path": "frontend/public/assets/generated/doc-c-heart-icon.dim_256x256.png",
-          "operation": "create",
-          "description": "Add generated static asset: frontend/public/assets/generated/doc-c-heart-icon.dim_256x256.png (Minimal heart-with-stethoscope icon in blue/white for specialization animation accent)."
-        },
-        {
-          "path": "frontend/src/components/layout/AppHeader.tsx",
-          "operation": "create",
-          "description": "Implement app header that displays the static logo from frontend/public/assets/generated/doc-c-logo.dim_512x512.png and optionally uses the hero banner as a decorative element on small screens; use shadcn-ui header/menu primitives. Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/components/layout/AppLayout.tsx",
-          "operation": "modify",
-          "description": "Wire AppHeader into the shared layout so it is visible across routes."
-        },
-        {
-          "path": "frontend/src/pages/doctor/DoctorLoginPage.tsx",
-          "operation": "modify",
-          "description": "Visibly incorporate the hero banner from frontend/public/assets/generated/doc-c-hero.dim_1600x600.png on the Doctor Login screen (e.g., header banner/side panel) without any backend image fetching."
-        },
-        {
-          "path": "frontend/src/components/doctor/SpecializationSelectWithHeart.tsx",
-          "operation": "modify",
-          "description": "Use the static heart icon accent from frontend/public/assets/generated/doc-c-heart-icon.dim_256x256.png for the specialization animation indicator (purely frontend asset usage)."
+          "description": "Reference the static assets via /assets/generated/... in the premium dashboard UI: frontend/public/assets/generated/doctor-hero-bg.dim_1920x600.png for the hero background, frontend/public/assets/generated/doctor-anil-kapoor-avatar.dim_512x512.png for the avatar, and frontend/public/assets/generated/map-preview-tile.dim_640x360.png for the map preview. Verify the component's usage instructions before implementing."
         }
       ]
     }

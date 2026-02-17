@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
 interface Session {
-  role: 'doctor' | 'hospital' | 'admin';
+  role: 'hospital' | 'admin';
   name: string;
   email: string;
 }

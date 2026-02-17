@@ -1,291 +1,177 @@
 {
   "kind": "build_request",
-  "title": "DOC C: Doctor, Hospital, and System Admin modules with dashboards, workflows, and subscription UI",
+  "title": "Premium glassmorphism Doctor Profile Dashboard (3-column hero layout + animations)",
   "projectName": "DOC C",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-1",
-      "text": "Create the DOC C application shell with responsive layout, global navigation, and routing for Doctor, Hospital Admin, and System Administrator modules (including registration, login, dashboards, analytics, and subscription/payment pages).",
+      "id": "REQ-18",
+      "text": "Create a premium, glassmorphism-style Doctor Profile Dashboard UI that matches a modern hospital recruitment platform aesthetic: a full-width soft-blue medical hero background with a centered, rounded, shadowed profile card laid out in three responsive columns (left/contact/actions+rating, center/core profile details, right/about+map preview).",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-1"
         ],
         "quotes": [
-          "Generate complete frontend structure with routing between Doctor, Hospital, and Admin modules."
+          "Create a professional Doctor Profile Dashboard exactly like a modern hospital recruitment platform.",
+          "Full width hero background with soft blue medical theme.",
+          "Use modern glassmorphism style with soft shadows.",
+          "Make layout responsive (mobile + desktop)."
         ]
       },
       "acceptanceCriteria": [
-        "App loads with a coherent responsive layout on mobile and desktop",
-        "Routes exist for Doctor: Register, Login, Dashboard; Hospital: Register, Dashboard, Analytics, Subscription/Payments; Admin: Dashboard/Management pages",
-        "Navigation allows moving between modules without page reloads"
+        "Dashboard page shows a full-width hero background in a soft blue medical theme behind the main content.",
+        "A centered profile card uses glassmorphism (semi-transparent surface + backdrop blur) with rounded corners and soft shadow.",
+        "On desktop, the card renders as a clear 3-column layout (left/center/right).",
+        "On mobile, the layout stacks cleanly (sections readable, actions accessible, no overflow)."
       ]
     },
     {
-      "id": "REQ-2",
-      "text": "Implement a consistent medical professional UI theme (blue + white) with clean minimal styling, modern cards/dashboards, and smooth animations across key interactions (toggles, notifications, modals, success states).",
+      "id": "REQ-19",
+      "text": "Implement the left column content exactly as specified: circular doctor photo; hospital name; phone number; email; location; a 5-star rating display; a primary blue \"Contact Now\" button; and a destructive red \"Hire Doctor\" button.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-1"
         ],
         "quotes": [
-          "Theme: Medical professional theme (Blue + White)",
-          "Design: Clean, minimal, smooth animations, responsive (mobile + desktop)",
-          "Use modern UI components, cards, dashboards, and charts."
+          "Left side:\n   - Circular doctor profile photo\n   - Hospital name\n   - Phone number\n   - Email\n   - Location\n   - Rating (5 star system)\n   - \"Contact Now\" button (blue)\n   - \"Hire Doctor\" button (red)"
         ]
       },
       "acceptanceCriteria": [
-        "UI uses a consistent blue/white palette, clean typography, and spacing across all pages",
-        "Animations are present but subtle (e.g., modal/popup transitions, toggle transitions, success animation after payment)",
-        "All main screens are usable on mobile and desktop breakpoints"
+        "Left section includes all requested fields and both CTAs with correct button color intent (primary blue, destructive red).",
+        "Doctor photo is circular and maintains aspect ratio (no stretching).",
+        "Rating is rendered as a 5-star system (filled vs unfilled stars)."
       ]
     },
     {
-      "id": "REQ-3",
-      "text": "Build the Doctor Registration page UI with fields: name, email, phone number, OTP verification flow, password creation, specialization dropdown with heart icon animation, experience (years), location, and profile photo upload (client-side preview).",
+      "id": "REQ-20",
+      "text": "Implement the center column content exactly as specified: large Doctor Name, specialization below name, years of experience, skills list, availability status as a green badge reading \"Available Now\", and working hours.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-1"
         ],
         "quotes": [
-          "DOCTOR MODULE - Registration Page: - Name - Email - Phone Number - OTP Verification system - Password creation - Specialization (Dropdown with heart icon animation) - Experience (in years) - Location - Upload profile photo"
+          "Center section:\n   - Doctor Name (Large font)\n   - Specialization below name\n   - Years of Experience\n   - Skills list\n   - Availability status (Green badge: Available Now)\n   - Working hours"
         ]
       },
       "acceptanceCriteria": [
-        "All specified fields are present with validation and clear error messages in English",
-        "OTP verification is represented as a UI flow (request OTP, enter OTP, verify) using dummy logic",
-        "Specialization dropdown includes an animated heart indicator when selecting/confirming specialization",
-        "Profile photo upload supports selecting an image and showing a preview"
+        "Doctor name is visually dominant (large font) and specialization is immediately below it.",
+        "Experience is shown as years of experience.",
+        "Skills are displayed as a clear list (e.g., chips or bullet list).",
+        "Availability shows a green badge with the exact text \"Available Now\".",
+        "Working hours are displayed in the center section."
       ]
     },
     {
-      "id": "REQ-4",
-      "text": "Build the Doctor Login page UI and connect it to a dummy authentication session (no external auth provider), enabling access to the Doctor Dashboard after login.",
+      "id": "REQ-21",
+      "text": "Implement the right column content exactly as specified: an About section (short description) and a small map preview with a location pin indicator.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-1"
         ],
         "quotes": [
-          "2. Login Page"
+          "Right side:\n   - About section (short description)\n   - Small map preview with location pin"
         ]
       },
       "acceptanceCriteria": [
-        "Login form is present and validates required inputs",
-        "Upon successful dummy login, user is routed to the Doctor Dashboard",
-        "Logged-in state is reflected in the UI (e.g., nav shows role/session status)"
+        "Right section contains an About heading/label and a short descriptive paragraph.",
+        "A compact map preview UI is displayed with a visible location pin marker."
       ]
     },
     {
-      "id": "REQ-5",
-      "text": "Implement the Doctor Dashboard UI featuring: profile card with photo, specialization displayed inside an animated heart symbol, experience, location, availability toggle (Available/Not Available), edit profile action, notification panel for job alerts, and applied jobs section.",
+      "id": "REQ-22",
+      "text": "Add smooth animations matching the specification: profile card fade-in on initial load; buttons scale slightly on hover; star rating animation; and an availability badge pulse effect.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-1"
         ],
         "quotes": [
-          "3. Doctor Dashboard: - Profile card with photo - Specialization displayed inside animated heart symbol - Experience - Location - Availability toggle (Available / Not Available) - Edit profile option - Notification panel for job alerts - Applied jobs section"
+          "Add smooth animations:\n   - Card fade-in on load\n   - Buttons hover scale effect\n   - Star rating animation\n   - Availability badge pulse effect"
         ]
       },
       "acceptanceCriteria": [
-        "Doctor dashboard displays all required elements with realistic dummy data",
-        "Availability toggle updates the displayed availability state and is persisted in app state",
-        "Edit profile opens an editable UI (modal or page) and updates the displayed profile state",
-        "Notifications panel and applied jobs list render and update based on dummy workflow events"
+        "On first render, the main profile card visibly fades in (not instant).",
+        "Both CTA buttons have a hover interaction that scales slightly and returns smoothly.",
+        "The star rating has an obvious animation (e.g., staggered reveal or subtle pop) when displayed.",
+        "The availability badge visibly pulses while in the \"Available Now\" state."
       ]
     },
     {
-      "id": "REQ-6",
-      "text": "Implement the hospital-to-doctor matching notification experience: when a hospital requirement matches a doctor’s specialization, show a notification alert and an animated popup in the Doctor UI.",
+      "id": "REQ-23",
+      "text": "Populate the Doctor Profile Dashboard with the provided dummy sample data and keep all user-facing text in English: Dr. Anil Kapoor (Neurosurgeon, 12 years experience), plus reasonable dummy values for hospital name, phone, email, location, rating, skills, working hours, and about text.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-1"
         ],
         "quotes": [
-          "4. When hospital requirement matches doctor specialization: - Show notification alert - Animated popup"
+          "Use dummy sample data (Dr. Anil Kapoor, Neurosurgeon, 12 years experience).",
+          "Use English for any user-facing text in the build request."
         ]
       },
       "acceptanceCriteria": [
-        "Triggering a matching requirement produces an in-app notification item",
-        "An animated popup/modal appears showing the alert details and can be dismissed",
-        "Notifications are readable and stored in UI state so they remain visible after dismissal in the panel"
+        "The page renders the name \"Dr. Anil Kapoor\", specialization \"Neurosurgeon\", and \"12\" years experience.",
+        "Other required fields (hospital name, phone, email, location, rating, skills, working hours, about) are present using dummy values.",
+        "No non-English strings are introduced in the new dashboard UI."
       ]
     },
     {
-      "id": "REQ-7",
-      "text": "Build the Hospital Registration page UI with fields: hospital name, departments, location, accreditation, and contact details; store submitted hospital profile in dummy app state.",
+      "id": "REQ-24",
+      "text": "Integrate the new premium Doctor Profile Dashboard into the existing doctor route structure without breaking current Internet Identity authentication gating and profile setup behavior (doctor users must still be required to authenticate before viewing the dashboard).",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-1"
         ],
         "quotes": [
-          "HOSPITAL MODULE - 1. Hospital Registration: - Hospital Name - Departments - Location - Accreditation - Contact Details"
+          "Create a professional Doctor Profile Dashboard..."
         ]
       },
       "acceptanceCriteria": [
-        "All specified fields are present and validated",
-        "Submitting creates/updates the hospital profile in app state and routes to Hospital Dashboard"
+        "Unauthenticated users attempting to access the doctor dashboard experience are redirected to the doctor login page as before.",
+        "Authenticated users with a doctor profile can access the new premium dashboard UI.",
+        "The existing profile setup dialog behavior is preserved (shown when no caller profile exists)."
       ]
     },
     {
-      "id": "REQ-8",
-      "text": "Build the Hospital Dashboard UI with overview cards (Total Doctors Available, Emergency Cases, Active Hires), doctor search and filters (specialization, experience, location, availability), emergency mode toggle (red highlight mode), and a doctor list with profile info and a Hire action.",
+      "id": "REQ-25",
+      "text": "Add any required generated static images as files under frontend/public/assets/generated and reference them from the Doctor Profile Dashboard (do not serve images from the backend).",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-1"
         ],
         "quotes": [
-          "2. Hospital Dashboard: - Overview cards (Total Doctors Available, Emergency Cases, Active Hires) - Search bar to find doctors - Filters: - Specialization - Experience - Location - Availability - Emergency Mode Toggle (Red highlight mode) - Doctor list with: - Profile - Specialization - Experience - Hire button"
+          "Full width hero background with soft blue medical theme.",
+          "Circular doctor profile photo",
+          "Small map preview with location pin"
         ]
       },
       "acceptanceCriteria": [
-        "Overview cards display populated dummy metrics",
-        "Search and filters narrow the doctor list based on dummy doctor data",
-        "Emergency Mode toggle visually switches the dashboard to a red-accent highlight state",
-        "Each doctor row/card shows profile, specialization, and experience, and the Hire action triggers a hire request workflow event"
-      ]
-    },
-    {
-      "id": "REQ-9",
-      "text": "Create the Hospital Analytics section UI with charts for emergency trends and doctor availability statistics, plus performance insight cards, all populated from dummy sample data.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-1"
-        ],
-        "quotes": [
-          "3. Analytics Section: - Graph for emergency trends - Doctor availability statistics - Performance insights cards"
-        ]
-      },
-      "acceptanceCriteria": [
-        "At least two charts are rendered (emergency trends and doctor availability) with labeled axes/legends where applicable",
-        "Performance insight cards render with meaningful dummy values and short explanatory labels",
-        "Charts render responsively without overflow on mobile"
-      ]
-    },
-    {
-      "id": "REQ-10",
-      "text": "Build the System Administrator module UI to view all registered doctors and hospitals, approve/reject profiles, manage subscription plans, and monitor payments (UI-driven with dummy data).",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-1"
-        ],
-        "quotes": [
-          "SYSTEM ADMIN MODULE - 1. View all registered doctors 2. View all registered hospitals 3. Approve / Reject profiles 4. Manage subscription plans 5. Monitor payments"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Admin pages show separate views/tables for doctors and hospitals",
-        "Approve/Reject actions update the displayed status for profiles in app state",
-        "Subscription plan management UI supports creating/editing/removing monthly/yearly plan definitions in dummy state",
-        "Payments monitoring UI shows a payment list with statuses and basic filtering/sorting"
-      ]
-    },
-    {
-      "id": "REQ-11",
-      "text": "Implement the Hospital Subscription & Payments UI: plan selection (monthly/yearly), UPI payment option, card payment option, auto-renew toggle, invoice download action, payment history table, and a payment success animation.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-1"
-        ],
-        "quotes": [
-          "PAYMENT & SUBSCRIPTION MODULE - Subscription Plans: - Monthly - Yearly - UPI Payment option - Card Payment option - Auto renewal toggle - Invoice download option - Payment history table - Success animation after payment"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Hospital can select monthly or yearly plan and see price/summary details (dummy)",
-        "UI offers UPI and Card payment flows (dummy form/confirmation)",
-        "Auto-renew toggle persists to subscription state",
-        "Invoice download triggers a client-side download (dummy PDF/text) for a selected payment",
-        "Payment history table lists prior dummy payments and newly completed payments",
-        "A visible success animation plays on successful payment completion"
-      ]
-    },
-    {
-      "id": "REQ-12",
-      "text": "Implement end-to-end workflow logic using dummy sample data and simulated real-time updates: doctors register and create profiles; hospitals subscribe and search; hospitals send hire requests; doctors receive notifications; doctors accept/reject; hospital and doctor dashboards update via polling/interval-based refresh in the UI.",
-      "target": "both",
-      "source": {
-        "messageIds": [
-          "msg-1"
-        ],
-        "quotes": [
-          "WORKFLOW LOGIC - Doctors register → Create profile - Hospitals subscribe → Search doctors - Hospital sends hire request - Doctor receives notification - Doctor accepts/rejects - Dashboard updates in real time",
-          "Include dummy sample data"
-        ]
-      },
-      "acceptanceCriteria": [
-        "A hire request created from the Hospital Dashboard appears in the Doctor notifications/applied section",
-        "Doctor accept/reject changes the hire request status and is reflected on both Doctor and Hospital dashboards",
-        "Simulated real-time updates occur without manual page refresh (e.g., via periodic polling)",
-        "Dummy datasets exist for doctors, hospitals, subscriptions, payments, and analytics and are used throughout the UI"
-      ]
-    },
-    {
-      "id": "REQ-13",
-      "text": "Add a Motoko backend actor that exposes CRUD-style endpoints for doctors, hospitals, hire requests, notifications, subscriptions, and payments using stable storage; integrate the frontend to fetch/mutate via React Query.",
-      "target": "both",
-      "source": {
-        "messageIds": [
-          "msg-1"
-        ],
-        "quotes": [
-          "Create a complete modern web application called \"DOC C\" (Doctor Recruitment & Emergency Connectivity Platform)."
-        ]
-      },
-      "acceptanceCriteria": [
-        "Backend provides query/update methods to list and mutate doctors, hospitals, and hire requests, plus subscription/payment records",
-        "Data persists across canister upgrades using stable structures (no external database)",
-        "Frontend uses React Query to load lists and perform mutations and reflects loading/error states",
-        "App remains functional with dummy seed data if backend is empty (e.g., seed on first run or via a dedicated init action)"
-      ]
-    },
-    {
-      "id": "REQ-14",
-      "text": "Add generated static brand assets and wire them into the UI (app header/login screens) as files under frontend/public/assets/generated (do not serve images from the backend).",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-1"
-        ],
-        "quotes": [
-          "Create a complete modern web application called \"DOC C\""
-        ]
-      },
-      "acceptanceCriteria": [
-        "Generated images exist in frontend/public/assets/generated with the specified filenames",
-        "App header and at least one auth screen visibly uses the logo/hero image from static assets",
-        "No backend endpoints are used to fetch these images"
+        "Any newly generated images are stored under frontend/public/assets/generated and loaded via /assets/generated/... URLs.",
+        "No backend endpoints are introduced for serving images."
       ]
     }
   ],
   "constraints": [
-    "Backend must remain a single Motoko actor in backend/main.mo (no additional backend services).",
-    "Do not edit any frontend files under immutable paths: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui; compose them instead.",
-    "No external databases or third-party auth providers; use only supported Internet Computer patterns.",
-    "No real OTP/SMS delivery; OTP verification must be simulated within the app.",
-    "No real-time WebSockets; simulate real-time updates via polling/refresh mechanisms."
+    "Do not modify files under frontend/src/components/ui (Shadcn UI components are read-only and must be composed).",
+    "Keep the backend as a single Motoko actor; no backend changes are required for this UI-only request.",
+    "Do not introduce unsupported services (no Firebase/Firestore, no external map APIs)."
   ],
   "nonGoals": [
-    "Implementing real UPI/card payment processing through a payment gateway (only UI and dummy records).",
-    "Sending real invoices via email or integrating email/SMS services.",
-    "Production-grade identity verification for doctors/hospitals beyond the requested UI and approval status.",
-    "True real-time infrastructure (WebSockets/push notifications)."
+    "Implementing real contact/hire functionality (buttons may be presentational only for this request).",
+    "Adding or changing backend schemas/endpoints for doctor profile data.",
+    "Adding real maps, geolocation, or third-party map providers."
   ],
   "imageRequirements": {
     "required": [
-      "Medical cross + pulse line logo on blue/white background (doc-c-logo.dim_512x512.png)",
-      "Clean medical abstract hero banner with blue/white palette and subtle grid pattern (doc-c-hero.dim_1600x600.png)",
-      "Minimal heart-with-stethoscope icon in blue/white for specialization animation accent (doc-c-heart-icon.dim_256x256.png)"
+      "Soft blue medical hero background with subtle gradient and abstract healthcare shapes (doctor-hero-bg.dim_1920x600.png)",
+      "Professional doctor headshot portrait suitable for a profile avatar (doctor-anil-kapoor-avatar.dim_512x512.png)",
+      "Minimal map preview tile with light roads/blocks styling and a prominent location pin (map-preview-tile.dim_640x360.png)"
     ],
     "edits": []
   },

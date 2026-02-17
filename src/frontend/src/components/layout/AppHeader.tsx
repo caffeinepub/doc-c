@@ -1,21 +1,36 @@
 import { Link, useNavigate } from '@tanstack/react-router';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Menu, Heart } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import { useSession } from '@/state/session';
+import { useInternetIdentity } from '@/hooks/useInternetIdentity';
+import { useGetCallerUserProfile } from '@/hooks/useCurrentUserProfile';
+import { useQueryClient } from '@tanstack/react-query';
 
 export default function AppHeader() {
   const navigate = useNavigate();
   const { session, clearSession } = useSession();
+  const { identity, clear: clearIdentity } = useInternetIdentity();
+  const { data: userProfile } = useGetCallerUserProfile();
+  const queryClient = useQueryClient();
 
-  const handleLogout = () => {
-    clearSession();
-    navigate({ to: '/' });
+  const isAuthenticatedWithII = !!identity;
+  const displayName = isAuthenticatedWithII && userProfile ? userProfile.name : session?.name;
+
+  const handleLogout = async () => {
+    if (isAuthenticatedWithII) {
+      await clearIdentity();
+      queryClient.clear();
+      navigate({ to: '/doctor/login' });
+    } else {
+      clearSession();
+      navigate({ to: '/' });
+    }
   };
 
   const NavLinks = () => (
     <>
-      {!session && (
+      {!session && !isAuthenticatedWithII && (
         <>
           <Link to="/doctor/login" className="text-sm font-medium hover:text-primary transition-colors">
             Doctor Login
@@ -25,7 +40,7 @@ export default function AppHeader() {
           </Link>
         </>
       )}
-      {session?.role === 'doctor' && (
+      {isAuthenticatedWithII && userProfile?.profileType === 'doctor' && (
         <Link to="/doctor/dashboard" className="text-sm font-medium hover:text-primary transition-colors">
           Dashboard
         </Link>
@@ -70,9 +85,9 @@ export default function AppHeader() {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6">
           <NavLinks />
-          {session && (
+          {(session || isAuthenticatedWithII) && displayName && (
             <div className="flex items-center space-x-4">
-              <span className="text-sm text-muted-foreground">{session.name}</span>
+              <span className="text-sm text-muted-foreground">{displayName}</span>
               <Button onClick={handleLogout} variant="outline" size="sm">
                 Logout
               </Button>
@@ -90,10 +105,10 @@ export default function AppHeader() {
           <SheetContent side="right">
             <nav className="flex flex-col space-y-4 mt-8">
               <NavLinks />
-              {session && (
+              {(session || isAuthenticatedWithII) && displayName && (
                 <>
                   <div className="pt-4 border-t">
-                    <p className="text-sm font-medium mb-2">{session.name}</p>
+                    <p className="text-sm font-medium mb-2">{displayName}</p>
                     <Button onClick={handleLogout} variant="outline" size="sm" className="w-full">
                       Logout
                     </Button>

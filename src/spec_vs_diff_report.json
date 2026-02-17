@@ -1,111 +1,57 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-17T15:02:12.885Z",
-  "summary": "Diff adds a TanStack Router-based app shell with routes for doctor/hospital/admin modules, multiple UI components for doctor dashboards/notifications and hospital search/hire workflows, simple chart rendering, invoice download and payment success animation utilities, and a Motoko backend actor with some doctor/hospital/hire-request/notification-related types and methods. Several core requirements cannot be confirmed due to omitted/truncated files, and some implemented items appear unrequested or conflict with stated constraints.",
+  "generatedAt": "2026-02-17T15:59:12.170Z",
+  "summary": "Implemented a new PremiumDoctorProfileDashboard component and wired it into the protected doctor dashboard route with Internet Identity gating and profile setup dialog preserved. The premium layout/hero background and some animation infrastructure are evidenced, but several required UI elements (CTAs, full 3-column contents, map tile/pin, and specific animations) are not fully verifiable from the truncated diff. Generated static image files themselves are not shown as added.",
   "missing_requirements": [
     {
-      "id": "REQ-13",
-      "requirement": "Backend actor exposes CRUD endpoints for doctors, hospitals, hire requests, notifications, subscriptions, and payments using stable storage; frontend integrates via React Query with seed data fallback.",
-      "reason": "The backend state shown uses in-memory `Map.empty` and `List` vars with no evidence of stable storage structures or upgrade persistence. Also, the visible backend types/methods focus on profiles/doctors/hospitals/hireRequests/notifications; there is no evidence in the shown portion of CRUD methods for subscriptions and payments.",
+      "id": "REQ-19",
+      "requirement": "Left column must include circular doctor photo; hospital name; phone; email; location; 5-star rating display; primary blue \"Contact Now\" button; destructive red \"Hire Doctor\" button.",
+      "reason": "Avatar and contact fields are partially evidenced, but the diff is truncated before showing the rating UI and the two CTA buttons, so implementation of the 5-star system and required CTAs/colors cannot be confirmed from provided evidence.",
       "evidence": [
-        "backend/main.mo"
+        "frontend/src/components/doctor/PremiumDoctorProfileDashboard.tsx (truncated)"
       ]
     },
     {
-      "id": "REQ-12",
-      "requirement": "Simulated real-time updates via polling/interval-based refresh that updates hospital/doctor dashboards without manual refresh.",
-      "reason": "A polling hook is added but it contains only a placeholder comment and does not refetch or update any state, so there is no evidence that periodic refresh actually drives UI updates.",
+      "id": "REQ-20",
+      "requirement": "Center column must include large Doctor Name, specialization, years of experience, skills list, green badge text exactly \"Available Now\", and working hours.",
+      "reason": "Dummy data includes these fields, but the rendered center-column UI is not visible in the truncated component content, so the required layout/text (including exact badge text) cannot be confirmed from provided evidence.",
       "evidence": [
-        "frontend/src/hooks/useSimulatedPolling.ts"
+        "frontend/src/components/doctor/PremiumDoctorProfileDashboard.tsx (truncated)"
       ]
     },
     {
-      "id": "REQ-14",
-      "requirement": "Wire generated brand assets into the UI (app header/login screens), including visible use of the hero banner image.",
-      "reason": "Logo and heart icon assets are referenced, but there is no evidence in the provided diff that the required hero banner image (`doc-c-hero.dim_1600x600.png`) is used on the landing or auth screens.",
+      "id": "REQ-21",
+      "requirement": "Right column must include About section and a small map preview with a visible location pin indicator.",
+      "reason": "The component imports MapPin and includes dummy about text, but the truncated diff does not show any rendered About section or map preview tile/pin UI, so this cannot be confirmed.",
       "evidence": [
-        "frontend/src/components/layout/AppHeader.tsx",
-        "frontend/src/components/doctor/SpecializationSelectWithHeart.tsx"
+        "frontend/src/components/doctor/PremiumDoctorProfileDashboard.tsx (truncated)"
+      ]
+    },
+    {
+      "id": "REQ-22",
+      "requirement": "Add smooth animations: profile card fade-in on initial load; buttons scale on hover; star rating animation; availability badge pulse effect.",
+      "reason": "Profile card fade-in is evidenced via `animate-fade-in` and Tailwind keyframes, but the truncated diff does not show button hover-scale classes, star-rating animation usage, or a pulsing availability badge in the component markup, so the full set cannot be confirmed.",
+      "evidence": [
+        "frontend/src/components/doctor/PremiumDoctorProfileDashboard.tsx (truncated)",
+        "frontend/tailwind.config.js (truncated)"
+      ]
+    },
+    {
+      "id": "REQ-25",
+      "requirement": "Add required generated static images under frontend/public/assets/generated and reference them via /assets/generated/... URLs.",
+      "reason": "The dashboard references image URLs under /assets/generated/..., but the diff does not show any new image files added under frontend/public/assets/generated.",
+      "evidence": [
+        "frontend/src/components/doctor/PremiumDoctorProfileDashboard.tsx (truncated)"
       ]
     }
   ],
-  "hallucinated_features": [
-    {
-      "description": "Backend access control, authorization mixins, and user approval gating (e.g., requiring approval before registering a doctor).",
-      "reason": "BuildRequest did not ask for authorization/approval enforcement in the backend; it specified dummy workflows/UI approval states, not backend role enforcement with secret initialization and approval checks.",
-      "evidence": [
-        "backend/main.mo",
-        "frontend/src/hooks/useActor.ts"
-      ]
-    },
-    {
-      "description": "Footer includes third-party promotional backlink (caffeine.ai) with tracking parameters.",
-      "reason": "BuildRequest did not request promotional or outbound referral links; this is extra functionality/content unrelated to requirements.",
-      "evidence": [
-        "frontend/src/components/layout/AppFooter.tsx"
-      ]
-    },
-    {
-      "description": "Changes/additions under paths explicitly marked immutable in constraints (useActor/useInternetIdentity).",
-      "reason": "Constraints state 'Do not edit any frontend files under immutable paths' including `frontend/src/hooks/useInternetIdentity.ts` and `frontend/src/hooks/useActor.ts`, but the diff shows these files added with substantial content.",
-      "evidence": [
-        "frontend/src/hooks/useActor.ts",
-        "frontend/src/hooks/useInternetIdentity.ts"
-      ]
-    }
-  ],
-  "confidence": 0.64,
+  "hallucinated_features": [],
+  "confidence": 0.62,
   "changed_files": [
-    "all_files_summary.json",
-    "backend/main.mo",
     "frontend-file-summaries.txt",
-    "frontend/index.css",
-    "frontend/index.html",
-    "frontend/src/App.tsx",
-    "frontend/src/components/analytics/ResponsiveCharts.tsx",
-    "frontend/src/components/doctor/AppliedJobsList.tsx",
-    "frontend/src/components/doctor/DoctorProfileCard.tsx",
-    "frontend/src/components/doctor/EditDoctorProfileDialog.tsx",
-    "frontend/src/components/doctor/MatchAlertPopup.tsx",
-    "frontend/src/components/doctor/NotificationsPanel.tsx",
-    "frontend/src/components/doctor/SpecializationSelectWithHeart.tsx",
-    "frontend/src/components/hospital/DoctorList.tsx",
-    "frontend/src/components/hospital/DoctorSearchFilters.tsx",
-    "frontend/src/components/layout/AppFooter.tsx",
-    "frontend/src/components/layout/AppHeader.tsx",
-    "frontend/src/components/layout/AppLayout.tsx",
-    "frontend/src/components/payments/InvoiceDownload.ts",
-    "frontend/src/components/payments/PaymentSuccessAnimation.tsx",
-    "frontend/src/components/shared/ImageUploadPreview.tsx",
-    "frontend/src/hooks/useActor.ts",
-    "frontend/src/hooks/useInternetIdentity.ts",
-    "frontend/src/hooks/useSimulatedPolling.ts",
-    "frontend/src/index.css",
-    "frontend/src/main.tsx",
-    "frontend/src/pages/LandingPage.tsx",
-    "frontend/src/pages/admin/AdminDashboardPage.tsx",
-    "frontend/src/pages/admin/AdminDoctorsPage.tsx",
-    "frontend/src/pages/admin/AdminHospitalsPage.tsx",
-    "frontend/src/pages/admin/AdminPaymentsPage.tsx",
-    "frontend/src/pages/admin/AdminSubscriptionsPage.tsx",
+    "frontend/src/components/doctor/PremiumDoctorProfileDashboard.tsx",
     "frontend/src/pages/doctor/DoctorDashboardPage.tsx",
-    "frontend/src/pages/doctor/DoctorLoginPage.tsx",
-    "frontend/src/pages/doctor/DoctorRegisterPage.tsx",
-    "frontend/src/pages/hospital/HospitalAnalyticsPage.tsx",
-    "frontend/src/pages/hospital/HospitalDashboardPage.tsx",
-    "frontend/src/pages/hospital/HospitalRegisterPage.tsx",
-    "frontend/src/pages/hospital/HospitalSubscriptionPaymentsPage.tsx",
-    "frontend/src/state/adminData.ts",
-    "frontend/src/state/analyticsSampleData.ts",
-    "frontend/src/state/doctorProfile.ts",
-    "frontend/src/state/emergencyMode.ts",
-    "frontend/src/state/notifications.ts",
-    "frontend/src/state/seedData.ts",
-    "frontend/src/state/session.ts",
-    "frontend/src/state/subscriptionPayments.ts",
-    "frontend/src/state/workflows.ts",
-    "frontend/src/utils/urlParams.ts",
     "frontend/tailwind.config.js",
     "project_state.json"
   ]

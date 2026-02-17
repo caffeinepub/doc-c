@@ -1,419 +1,129 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-17T15:02:12.890Z",
+  "generatedAt": "2026-02-17T15:59:12.174Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 14,
-    "implemented": 14,
+    "total": 8,
+    "implemented": 8,
     "items": [
       {
-        "id": "REQ-1",
-        "summary": "Create the DOC C application shell with responsive layout, global navigation, and routing for Doctor, Hospital Admin, and System Administrator modules (including registration, login, dashboards, analytics, and subscription/payment pages).",
+        "id": "REQ-18",
+        "summary": "Create a premium, glassmorphism-style Doctor Profile Dashboard UI that matches a modern hospital recruitment platform aesthetic: a full-width soft-blue medical hero background with a centered, rounded, shadowed profile card laid out in three responsive columns (left/contact/actions+rating, center/core profile details, right/about+map preview).",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/App.tsx",
-          "frontend/src/router/routes.tsx",
-          "frontend/src/components/layout/AppLayout.tsx",
-          "frontend/src/components/layout/GlobalNav.tsx",
-          "frontend/src/pages/doctor/DoctorRegisterPage.tsx",
-          "frontend/src/pages/doctor/DoctorLoginPage.tsx",
-          "frontend/src/pages/doctor/DoctorDashboardPage.tsx",
-          "frontend/src/pages/hospital/HospitalRegisterPage.tsx",
-          "frontend/src/pages/hospital/HospitalDashboardPage.tsx",
-          "frontend/src/pages/hospital/HospitalAnalyticsPage.tsx",
-          "frontend/src/pages/hospital/HospitalSubscriptionPaymentsPage.tsx",
-          "frontend/src/pages/admin/AdminDashboardPage.tsx",
-          "frontend/src/pages/admin/AdminDoctorsPage.tsx",
-          "frontend/src/pages/admin/AdminHospitalsPage.tsx",
-          "frontend/src/pages/admin/AdminSubscriptionsPage.tsx",
-          "frontend/src/pages/admin/AdminPaymentsPage.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/App.tsx",
-          "frontend/src/components/layout/AppLayout.tsx",
-          "frontend/src/pages/doctor/DoctorRegisterPage.tsx",
-          "frontend/src/pages/doctor/DoctorLoginPage.tsx",
-          "frontend/src/pages/doctor/DoctorDashboardPage.tsx",
-          "frontend/src/pages/hospital/HospitalRegisterPage.tsx",
-          "frontend/src/pages/hospital/HospitalDashboardPage.tsx",
-          "frontend/src/pages/hospital/HospitalAnalyticsPage.tsx",
-          "frontend/src/pages/hospital/HospitalSubscriptionPaymentsPage.tsx",
-          "frontend/src/pages/admin/AdminDashboardPage.tsx",
-          "frontend/src/pages/admin/AdminDoctorsPage.tsx",
-          "frontend/src/pages/admin/AdminHospitalsPage.tsx",
-          "frontend/src/pages/admin/AdminSubscriptionsPage.tsx",
-          "frontend/src/pages/admin/AdminPaymentsPage.tsx"
-        ]
-      },
-      {
-        "id": "REQ-10",
-        "summary": "Build the System Administrator module UI to view all registered doctors and hospitals, approve/reject profiles, manage subscription plans, and monitor payments (UI-driven with dummy data).",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/components/admin/AdminAccessGate.tsx",
-          "frontend/src/pages/admin/AdminDoctorsPage.tsx",
-          "frontend/src/pages/admin/AdminHospitalsPage.tsx",
-          "frontend/src/pages/admin/AdminSubscriptionsPage.tsx",
-          "frontend/src/pages/admin/AdminPaymentsPage.tsx",
-          "frontend/src/state/adminData.ts",
-          "frontend/src/router/routes.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/pages/admin/AdminDoctorsPage.tsx",
-          "frontend/src/pages/admin/AdminHospitalsPage.tsx",
-          "frontend/src/pages/admin/AdminSubscriptionsPage.tsx",
-          "frontend/src/pages/admin/AdminPaymentsPage.tsx",
-          "frontend/src/state/adminData.ts"
-        ]
-      },
-      {
-        "id": "REQ-11",
-        "summary": "Implement the Hospital Subscription & Payments UI: plan selection (monthly/yearly), UPI payment option, card payment option, auto-renew toggle, invoice download action, payment history table, and a payment success animation.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/pages/hospital/HospitalSubscriptionPaymentsPage.tsx",
-          "frontend/src/components/payments/InvoiceDownload.ts",
-          "frontend/src/components/payments/PaymentSuccessAnimation.tsx",
-          "frontend/src/state/subscriptionPayments.ts"
-        ],
-        "matchedFiles": [
-          "frontend/src/pages/hospital/HospitalSubscriptionPaymentsPage.tsx",
-          "frontend/src/components/payments/InvoiceDownload.ts",
-          "frontend/src/components/payments/PaymentSuccessAnimation.tsx",
-          "frontend/src/state/subscriptionPayments.ts"
-        ]
-      },
-      {
-        "id": "REQ-12",
-        "summary": "Implement end-to-end workflow logic using dummy sample data and simulated real-time updates: doctors register and create profiles; hospitals subscribe and search; hospitals send hire requests; doctors receive notifications; doctors accept/reject; hospital and doctor dashboards update via polling/interval-based refresh in the UI.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/state/workflows.ts",
-          "frontend/src/state/seedData.ts",
-          "frontend/src/hooks/useSimulatedPolling.ts",
-          "frontend/src/pages/hospital/HospitalDashboardPage.tsx",
+          "frontend/src/components/doctor/PremiumDoctorProfileDashboard.tsx",
           "frontend/src/pages/doctor/DoctorDashboardPage.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/state/workflows.ts",
-          "frontend/src/state/seedData.ts",
-          "frontend/src/hooks/useSimulatedPolling.ts",
-          "frontend/src/pages/hospital/HospitalDashboardPage.tsx",
+          "frontend/src/components/doctor/PremiumDoctorProfileDashboard.tsx",
           "frontend/src/pages/doctor/DoctorDashboardPage.tsx"
         ]
       },
       {
-        "id": "REQ-13",
-        "summary": "Add a Motoko backend actor that exposes CRUD-style endpoints for doctors, hospitals, hire requests, notifications, subscriptions, and payments using stable storage; integrate the frontend to fetch/mutate via React Query.",
+        "id": "REQ-19",
+        "summary": "Implement the left column content exactly as specified: circular doctor photo; hospital name; phone number; email; location; a 5-star rating display; a primary blue \"Contact Now\" button; and a destructive red \"Hire Doctor\" button.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/api/queryClient.ts",
-          "frontend/src/api/backendHooks.ts",
-          "frontend/src/hooks/useHybridData.ts",
-          "frontend/src/pages/hospital/HospitalDashboardPage.tsx",
-          "frontend/src/pages/doctor/DoctorDashboardPage.tsx",
-          "frontend/src/pages/admin/AdminDoctorsPage.tsx",
-          "frontend/src/pages/admin/AdminHospitalsPage.tsx"
+          "frontend/src/components/doctor/PremiumDoctorProfileDashboard.tsx",
+          "frontend/public/assets/generated/doctor-anil-kapoor-avatar.dim_512x512.png"
         ],
         "matchedFiles": [
-          "frontend/src/pages/hospital/HospitalDashboardPage.tsx",
-          "frontend/src/pages/doctor/DoctorDashboardPage.tsx",
-          "frontend/src/pages/admin/AdminDoctorsPage.tsx",
-          "frontend/src/pages/admin/AdminHospitalsPage.tsx"
+          "frontend/src/components/doctor/PremiumDoctorProfileDashboard.tsx",
+          "frontend/public/assets/generated/doctor-anil-kapoor-avatar.dim_512x512.png"
         ]
       },
       {
-        "id": "REQ-14",
-        "summary": "Add generated static brand assets and wire them into the UI (app header/login screens) as files under frontend/public/assets/generated (do not serve images from the backend).",
+        "id": "REQ-20",
+        "summary": "Implement the center column content exactly as specified: large Doctor Name, specialization below name, years of experience, skills list, availability status as a green badge reading \"Available Now\", and working hours.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/public/assets/generated/doc-c-logo.dim_512x512.png",
-          "frontend/public/assets/generated/doc-c-hero.dim_1600x600.png",
-          "frontend/public/assets/generated/doc-c-heart-icon.dim_256x256.png",
-          "frontend/src/components/layout/AppHeader.tsx",
-          "frontend/src/components/layout/AppLayout.tsx",
-          "frontend/src/pages/doctor/DoctorLoginPage.tsx",
-          "frontend/src/components/doctor/SpecializationSelectWithHeart.tsx"
+          "frontend/src/components/doctor/PremiumDoctorProfileDashboard.tsx"
         ],
         "matchedFiles": [
-          "frontend/public/assets/generated/doc-c-logo.dim_512x512.png",
-          "frontend/public/assets/generated/doc-c-hero.dim_1600x600.png",
-          "frontend/public/assets/generated/doc-c-heart-icon.dim_256x256.png",
-          "frontend/src/components/layout/AppHeader.tsx",
-          "frontend/src/components/layout/AppLayout.tsx",
-          "frontend/src/pages/doctor/DoctorLoginPage.tsx",
-          "frontend/src/components/doctor/SpecializationSelectWithHeart.tsx"
+          "frontend/src/components/doctor/PremiumDoctorProfileDashboard.tsx"
         ]
       },
       {
-        "id": "REQ-2",
-        "summary": "Implement a consistent medical professional UI theme (blue + white) with clean minimal styling, modern cards/dashboards, and smooth animations across key interactions (toggles, notifications, modals, success states).",
+        "id": "REQ-21",
+        "summary": "Implement the right column content exactly as specified: an About section (short description) and a small map preview with a location pin indicator.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/index.css",
+          "frontend/src/components/doctor/PremiumDoctorProfileDashboard.tsx",
+          "frontend/public/assets/generated/map-preview-tile.dim_640x360.png"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/doctor/PremiumDoctorProfileDashboard.tsx",
+          "frontend/public/assets/generated/map-preview-tile.dim_640x360.png"
+        ]
+      },
+      {
+        "id": "REQ-22",
+        "summary": "Add smooth animations matching the specification: profile card fade-in on initial load; buttons scale slightly on hover; star rating animation; and an availability badge pulse effect.",
+        "status": "implemented",
+        "plannedFiles": [
           "frontend/tailwind.config.js",
-          "frontend/src/components/ui/animations.tsx"
+          "frontend/src/components/doctor/PremiumDoctorProfileDashboard.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/index.css",
-          "frontend/tailwind.config.js"
+          "frontend/tailwind.config.js",
+          "frontend/src/components/doctor/PremiumDoctorProfileDashboard.tsx"
         ]
       },
       {
-        "id": "REQ-3",
-        "summary": "Build the Doctor Registration page UI with fields: name, email, phone number, OTP verification flow, password creation, specialization dropdown with heart icon animation, experience (years), location, and profile photo upload (client-side preview).",
+        "id": "REQ-23",
+        "summary": "Populate the Doctor Profile Dashboard with the provided dummy sample data and keep all user-facing text in English: Dr. Anil Kapoor (Neurosurgeon, 12 years experience), plus reasonable dummy values for hospital name, phone, email, location, rating, skills, working hours, and about text.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/pages/doctor/DoctorRegisterPage.tsx",
-          "frontend/src/components/doctor/SpecializationSelectWithHeart.tsx",
-          "frontend/src/components/shared/ImageUploadPreview.tsx",
-          "frontend/src/state/doctorProfile.ts"
+          "frontend/src/components/doctor/PremiumDoctorProfileDashboard.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/pages/doctor/DoctorRegisterPage.tsx",
-          "frontend/src/components/doctor/SpecializationSelectWithHeart.tsx",
-          "frontend/src/components/shared/ImageUploadPreview.tsx",
-          "frontend/src/state/doctorProfile.ts"
+          "frontend/src/components/doctor/PremiumDoctorProfileDashboard.tsx"
         ]
       },
       {
-        "id": "REQ-4",
-        "summary": "Build the Doctor Login page UI and connect it to a dummy authentication session (no external auth provider), enabling access to the Doctor Dashboard after login.",
+        "id": "REQ-24",
+        "summary": "Integrate the new premium Doctor Profile Dashboard into the existing doctor route structure without breaking current Internet Identity authentication gating and profile setup behavior (doctor users must still be required to authenticate before viewing the dashboard).",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/state/session.ts",
-          "frontend/src/pages/doctor/DoctorLoginPage.tsx",
-          "frontend/src/components/layout/GlobalNav.tsx",
-          "frontend/src/components/auth/RouteGuards.tsx",
-          "frontend/src/router/routes.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/state/session.ts",
-          "frontend/src/pages/doctor/DoctorLoginPage.tsx"
-        ]
-      },
-      {
-        "id": "REQ-5",
-        "summary": "Implement the Doctor Dashboard UI featuring: profile card with photo, specialization displayed inside an animated heart symbol, experience, location, availability toggle (Available/Not Available), edit profile action, notification panel for job alerts, and applied jobs section.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/pages/doctor/DoctorDashboardPage.tsx",
-          "frontend/src/components/doctor/DoctorProfileCard.tsx",
-          "frontend/src/components/doctor/EditDoctorProfileDialog.tsx",
-          "frontend/src/components/doctor/NotificationsPanel.tsx",
-          "frontend/src/components/doctor/AppliedJobsList.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/pages/doctor/DoctorDashboardPage.tsx",
-          "frontend/src/components/doctor/DoctorProfileCard.tsx",
-          "frontend/src/components/doctor/EditDoctorProfileDialog.tsx",
-          "frontend/src/components/doctor/NotificationsPanel.tsx",
-          "frontend/src/components/doctor/AppliedJobsList.tsx"
-        ]
-      },
-      {
-        "id": "REQ-6",
-        "summary": "Implement the hospital-to-doctor matching notification experience: when a hospital requirement matches a doctor’s specialization, show a notification alert and an animated popup in the Doctor UI.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/components/doctor/MatchAlertPopup.tsx",
-          "frontend/src/state/notifications.ts",
           "frontend/src/pages/doctor/DoctorDashboardPage.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/components/doctor/MatchAlertPopup.tsx",
-          "frontend/src/state/notifications.ts",
           "frontend/src/pages/doctor/DoctorDashboardPage.tsx"
         ]
       },
       {
-        "id": "REQ-7",
-        "summary": "Build the Hospital Registration page UI with fields: hospital name, departments, location, accreditation, and contact details; store submitted hospital profile in dummy app state.",
+        "id": "REQ-25",
+        "summary": "Add any required generated static images as files under frontend/public/assets/generated and reference them from the Doctor Profile Dashboard (do not serve images from the backend).",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/pages/hospital/HospitalRegisterPage.tsx",
-          "frontend/src/state/hospitalProfile.ts",
-          "frontend/src/router/routes.tsx"
+          "frontend/public/assets/generated/doctor-hero-bg.dim_1920x600.png",
+          "frontend/public/assets/generated/doctor-anil-kapoor-avatar.dim_512x512.png",
+          "frontend/public/assets/generated/map-preview-tile.dim_640x360.png",
+          "frontend/src/components/doctor/PremiumDoctorProfileDashboard.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/pages/hospital/HospitalRegisterPage.tsx"
-        ]
-      },
-      {
-        "id": "REQ-8",
-        "summary": "Build the Hospital Dashboard UI with overview cards (Total Doctors Available, Emergency Cases, Active Hires), doctor search and filters (specialization, experience, location, availability), emergency mode toggle (red highlight mode), and a doctor list with profile info and a Hire action.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/pages/hospital/HospitalDashboardPage.tsx",
-          "frontend/src/components/hospital/DoctorSearchFilters.tsx",
-          "frontend/src/components/hospital/DoctorList.tsx",
-          "frontend/src/state/emergencyMode.ts"
-        ],
-        "matchedFiles": [
-          "frontend/src/pages/hospital/HospitalDashboardPage.tsx",
-          "frontend/src/components/hospital/DoctorSearchFilters.tsx",
-          "frontend/src/components/hospital/DoctorList.tsx",
-          "frontend/src/state/emergencyMode.ts"
-        ]
-      },
-      {
-        "id": "REQ-9",
-        "summary": "Create the Hospital Analytics section UI with charts for emergency trends and doctor availability statistics, plus performance insight cards, all populated from dummy sample data.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/pages/hospital/HospitalAnalyticsPage.tsx",
-          "frontend/src/components/analytics/ResponsiveCharts.tsx",
-          "frontend/src/state/analyticsSampleData.ts"
-        ],
-        "matchedFiles": [
-          "frontend/src/pages/hospital/HospitalAnalyticsPage.tsx",
-          "frontend/src/components/analytics/ResponsiveCharts.tsx",
-          "frontend/src/state/analyticsSampleData.ts"
+          "frontend/public/assets/generated/doctor-hero-bg.dim_1920x600.png",
+          "frontend/public/assets/generated/doctor-anil-kapoor-avatar.dim_512x512.png",
+          "frontend/public/assets/generated/map-preview-tile.dim_640x360.png",
+          "frontend/src/components/doctor/PremiumDoctorProfileDashboard.tsx"
         ]
       }
     ]
   },
   "changedFiles": [
-    "backend/authorization/MixinAuthorization.mo",
-    "backend/authorization/access-control.mo",
-    "backend/main.mo",
-    "backend/user-approval/approval.mo",
     "build-request.json",
-    "build-template/Dockerfile",
-    "build-template/LICENSE",
-    "build-template/README.md",
-    "build-template/deploy.sh",
-    "build-template/icp.yaml",
-    "build-template/package.json",
-    "build-template/pnpm-lock.yaml",
-    "build-template/pnpm-workspace.yaml",
-    "build-template/scripts/prune-unused-images.js",
-    "build-template/scripts/resize-images.js",
-    "build-template/src/backend/canister.yaml",
-    "build-template/src/backend/system-idl/aaaaa-aa.did",
-    "build-template/src/frontend/canister.yaml",
-    "build-template/src/frontend/components.json",
-    "build-template/src/frontend/env.json",
-    "build-template/src/frontend/eslint-rules/no-bigint-in-query-keys.js",
-    "build-template/src/frontend/eslint-rules/require-internet-identity-provider.js",
-    "build-template/src/frontend/eslint.config.js",
-    "build-template/src/frontend/package.json",
-    "build-template/src/frontend/postcss.config.js",
-    "build-template/src/frontend/src/components/ui/accordion.tsx",
-    "build-template/src/frontend/src/components/ui/alert-dialog.tsx",
-    "build-template/src/frontend/src/components/ui/alert.tsx",
-    "build-template/src/frontend/src/components/ui/aspect-ratio.tsx",
-    "build-template/src/frontend/src/components/ui/avatar.tsx",
-    "build-template/src/frontend/src/components/ui/badge.tsx",
-    "build-template/src/frontend/src/components/ui/breadcrumb.tsx",
-    "build-template/src/frontend/src/components/ui/button.tsx",
-    "build-template/src/frontend/src/components/ui/calendar.tsx",
-    "build-template/src/frontend/src/components/ui/card.tsx",
-    "build-template/src/frontend/src/components/ui/carousel.tsx",
-    "build-template/src/frontend/src/components/ui/chart.tsx",
-    "build-template/src/frontend/src/components/ui/checkbox.tsx",
-    "build-template/src/frontend/src/components/ui/collapsible.tsx",
-    "build-template/src/frontend/src/components/ui/command.tsx",
-    "build-template/src/frontend/src/components/ui/context-menu.tsx",
-    "build-template/src/frontend/src/components/ui/dialog.tsx",
-    "build-template/src/frontend/src/components/ui/drawer.tsx",
-    "build-template/src/frontend/src/components/ui/dropdown-menu.tsx",
-    "build-template/src/frontend/src/components/ui/form.tsx",
-    "build-template/src/frontend/src/components/ui/hover-card.tsx",
-    "build-template/src/frontend/src/components/ui/input-otp.tsx",
-    "build-template/src/frontend/src/components/ui/input.tsx",
-    "build-template/src/frontend/src/components/ui/label.tsx",
-    "build-template/src/frontend/src/components/ui/menubar.tsx",
-    "build-template/src/frontend/src/components/ui/navigation-menu.tsx",
-    "build-template/src/frontend/src/components/ui/pagination.tsx",
-    "build-template/src/frontend/src/components/ui/popover.tsx",
-    "build-template/src/frontend/src/components/ui/progress.tsx",
-    "build-template/src/frontend/src/components/ui/radio-group.tsx",
-    "build-template/src/frontend/src/components/ui/resizable.tsx",
-    "build-template/src/frontend/src/components/ui/scroll-area.tsx",
-    "build-template/src/frontend/src/components/ui/select.tsx",
-    "build-template/src/frontend/src/components/ui/separator.tsx",
-    "build-template/src/frontend/src/components/ui/sheet.tsx",
-    "build-template/src/frontend/src/components/ui/sidebar.tsx",
-    "build-template/src/frontend/src/components/ui/skeleton.tsx",
-    "build-template/src/frontend/src/components/ui/slider.tsx",
-    "build-template/src/frontend/src/components/ui/sonner.tsx",
-    "build-template/src/frontend/src/components/ui/switch.tsx",
-    "build-template/src/frontend/src/components/ui/table.tsx",
-    "build-template/src/frontend/src/components/ui/tabs.tsx",
-    "build-template/src/frontend/src/components/ui/textarea.tsx",
-    "build-template/src/frontend/src/components/ui/toggle-group.tsx",
-    "build-template/src/frontend/src/components/ui/toggle.tsx",
-    "build-template/src/frontend/src/components/ui/tooltip.tsx",
-    "build-template/src/frontend/src/hooks/use-mobile.tsx",
-    "build-template/src/frontend/src/lib/utils.ts",
-    "build-template/src/frontend/tsconfig.json",
-    "build-template/src/frontend/vite.config.js",
-    "build-template/tsconfig.json",
-    "caffeine.lock.json",
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/index.css",
-    "frontend/index.html",
-    "frontend/public/assets/generated/doc-c-heart-icon.dim_256x256.png",
-    "frontend/public/assets/generated/doc-c-hero.dim_1600x600.png",
-    "frontend/public/assets/generated/doc-c-logo.dim_512x512.png",
-    "frontend/src/App.tsx",
-    "frontend/src/backend.d.ts",
-    "frontend/src/backend.ts",
-    "frontend/src/components/analytics/ResponsiveCharts.tsx",
-    "frontend/src/components/doctor/AppliedJobsList.tsx",
-    "frontend/src/components/doctor/DoctorProfileCard.tsx",
-    "frontend/src/components/doctor/EditDoctorProfileDialog.tsx",
-    "frontend/src/components/doctor/MatchAlertPopup.tsx",
-    "frontend/src/components/doctor/NotificationsPanel.tsx",
-    "frontend/src/components/doctor/SpecializationSelectWithHeart.tsx",
-    "frontend/src/components/hospital/DoctorList.tsx",
-    "frontend/src/components/hospital/DoctorSearchFilters.tsx",
-    "frontend/src/components/layout/AppFooter.tsx",
-    "frontend/src/components/layout/AppHeader.tsx",
-    "frontend/src/components/layout/AppLayout.tsx",
-    "frontend/src/components/payments/InvoiceDownload.ts",
-    "frontend/src/components/payments/PaymentSuccessAnimation.tsx",
-    "frontend/src/components/shared/ImageUploadPreview.tsx",
-    "frontend/src/config.ts",
-    "frontend/src/declarations/backend.did.d.ts",
-    "frontend/src/declarations/backend.did.js",
-    "frontend/src/hooks/useActor.ts",
-    "frontend/src/hooks/useInternetIdentity.ts",
-    "frontend/src/hooks/useSimulatedPolling.ts",
-    "frontend/src/index.css",
-    "frontend/src/main.tsx",
-    "frontend/src/pages/LandingPage.tsx",
-    "frontend/src/pages/admin/AdminDashboardPage.tsx",
-    "frontend/src/pages/admin/AdminDoctorsPage.tsx",
-    "frontend/src/pages/admin/AdminHospitalsPage.tsx",
-    "frontend/src/pages/admin/AdminPaymentsPage.tsx",
-    "frontend/src/pages/admin/AdminSubscriptionsPage.tsx",
+    "frontend/public/assets/generated/doctor-anil-kapoor-avatar.dim_512x512.png",
+    "frontend/public/assets/generated/doctor-hero-bg.dim_1920x600.png",
+    "frontend/public/assets/generated/map-preview-tile.dim_640x360.png",
+    "frontend/src/components/doctor/PremiumDoctorProfileDashboard.tsx",
     "frontend/src/pages/doctor/DoctorDashboardPage.tsx",
-    "frontend/src/pages/doctor/DoctorLoginPage.tsx",
-    "frontend/src/pages/doctor/DoctorRegisterPage.tsx",
-    "frontend/src/pages/hospital/HospitalAnalyticsPage.tsx",
-    "frontend/src/pages/hospital/HospitalDashboardPage.tsx",
-    "frontend/src/pages/hospital/HospitalRegisterPage.tsx",
-    "frontend/src/pages/hospital/HospitalSubscriptionPaymentsPage.tsx",
-    "frontend/src/state/adminData.ts",
-    "frontend/src/state/analyticsSampleData.ts",
-    "frontend/src/state/doctorProfile.ts",
-    "frontend/src/state/emergencyMode.ts",
-    "frontend/src/state/notifications.ts",
-    "frontend/src/state/seedData.ts",
-    "frontend/src/state/session.ts",
-    "frontend/src/state/subscriptionPayments.ts",
-    "frontend/src/state/workflows.ts",
-    "frontend/src/ui-summary.json",
-    "frontend/src/utils/StorageClient.ts",
-    "frontend/src/utils/urlParams.ts",
     "frontend/tailwind.config.js",
     "project_state.json",
     "scratch/component-selection.json",
